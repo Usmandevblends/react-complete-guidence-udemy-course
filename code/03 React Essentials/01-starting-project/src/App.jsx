@@ -6,8 +6,8 @@ import TabButton from './components/TabButton';
 
 function App() {
 
-  function handleSelect() {
-    console.log('Hello world ! Selected tab');
+  function handleSelect(selectedButton) {
+    console.log(selectedButton);
   }
 
   return (
@@ -42,10 +42,10 @@ function App() {
         <section id='examples'>
           <h2>Examples</h2>
           <menu>
-            <TabButton label="Components" onSelect={handleSelect} />
-            <TabButton label="Jsx" onSelect={handleSelect} />
-            <TabButton label="Props" onSelect={handleSelect} />
-            <TabButton label="States" onSelect={handleSelect} />
+            <TabButton label="Components" onSelect={()=> handleSelect('components')} />
+            <TabButton label="Jsx" onSelect={()=> handleSelect('jsx')} />
+            <TabButton label="Props" onSelect={()=> handleSelect('props')} />
+            <TabButton label="States" onSelect={()=> handleSelect('state')} />
           </menu>
           danamic content
         </section>
