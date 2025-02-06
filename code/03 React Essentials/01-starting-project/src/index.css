@@ -102,6 +102,16 @@ main h2 {
 }
 
 #examples h2 {
+  margin: 0;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 2rem;
+  background: linear-gradient(40deg, #ea00ff, #ea00ff, #03d5ff, #03d5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+#examples h2 {
   text-align: left;
 }
 
@@ -123,6 +133,7 @@ main h2 {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #examples menu button:hover {
