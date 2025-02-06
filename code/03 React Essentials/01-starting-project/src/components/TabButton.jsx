@@ -1,12 +1,10 @@
 import React from "react";
 
-function TabButton({ label }) {
-  function handleClick() {
-    alert(`You clicked on ${label}`);
-  }
+function TabButton({ label , onSelect }) {
+
   return (
     <li>
-      <button onClick={handleClick}>{label}</button>
+      <button onClick={onSelect}>{label}</button>
     </li>
   );
 }
