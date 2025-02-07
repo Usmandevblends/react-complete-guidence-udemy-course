@@ -1,6 +1,6 @@
 import React from "react";
 
-function TabButton({ label , onSelect , isSelected}) {
+function TabButton({ label, onSelect, isSelected }) {
 
   return (
     <li>
