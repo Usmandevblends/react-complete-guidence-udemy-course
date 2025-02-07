@@ -18,7 +18,7 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept
+            {/* <CoreConcept
               title={CORE_CONCEPTS[0].title}
               description={CORE_CONCEPTS[0].description}
               image={CORE_CONCEPTS[0].image}
@@ -37,16 +37,17 @@ function App() {
               title={CORE_CONCEPTS[3].title}
               description={CORE_CONCEPTS[3].description}
               image={CORE_CONCEPTS[3].image}
-            />
+            /> */}
+            <CoreConcept CORE_CONCEPTS={CORE_CONCEPTS} />
           </ul>
         </section>
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton label="Components" onSelect={() => handleSelect("components")} />
-            <TabButton label="Jsx" onSelect={() => handleSelect("jsx")} />
-            <TabButton label="Props" onSelect={() => handleSelect("props")} />
-            <TabButton label="States" onSelect={() => handleSelect("state")} />
+            <TabButton isSelected={selectedTopic === 'components'} label="Components" onSelect={() => handleSelect("components")} />
+            <TabButton isSelected={selectedTopic === 'jsx'} label="Jsx" onSelect={() => handleSelect("jsx")} />
+            <TabButton isSelected={selectedTopic === 'props'} label="Props" onSelect={() => handleSelect("props")} />
+            <TabButton isSelected={selectedTopic === 'state'} label="States" onSelect={() => handleSelect("state")} />
           </menu>
           {!selectedTopic ? (
             <p>Please select a topic</p>
