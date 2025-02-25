@@ -7,6 +7,9 @@ import { EXAMPLES } from "./data.js";
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState();
+
+  const topics = ["components", "jsx", "props", "state"]; // Array of topics
+
   function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
   }
@@ -18,52 +21,20 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            {/* <CoreConcept
-              title={CORE_CONCEPTS[0].title}
-              description={CORE_CONCEPTS[0].description}
-              image={CORE_CONCEPTS[0].image}
-            />
-            <CoreConcept
-              title={CORE_CONCEPTS[1].title}
-              description={CORE_CONCEPTS[1].description}
-              image={CORE_CONCEPTS[1].image}
-            />
-            <CoreConcept
-              title={CORE_CONCEPTS[2].title}
-              description={CORE_CONCEPTS[2].description}
-              image={CORE_CONCEPTS[2].image}
-            />
-            <CoreConcept
-              title={CORE_CONCEPTS[3].title}
-              description={CORE_CONCEPTS[3].description}
-              image={CORE_CONCEPTS[3].image}
-            /> */}
             <CoreConcept CORE_CONCEPTS={CORE_CONCEPTS} />
           </ul>
         </section>
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton
-              isSelected={selectedTopic === "components"}
-              label="Components"
-              onSelect={() => handleSelect("components")}
-            />
-            <TabButton
-              isSelected={selectedTopic === "jsx"}
-              label="Jsx"
-              onSelect={() => handleSelect("jsx")}
-            />
-            <TabButton
-              isSelected={selectedTopic === "props"}
-              label="Props"
-              onSelect={() => handleSelect("props")}
-            />
-            <TabButton
-              isSelected={selectedTopic === "state"}
-              label="States"
-              onSelect={() => handleSelect("state")}
-            />
+            {topics.map((topic) => (
+              <TabButton
+                key={topic}
+                isSelected={selectedTopic === topic}
+                label={topic.charAt(0).toUpperCase() + topic.slice(1)}
+                onSelect={() => handleSelect(topic)}
+              />
+            ))}
           </menu>
           {!selectedTopic ? (
             <p>Please select a topic</p>
