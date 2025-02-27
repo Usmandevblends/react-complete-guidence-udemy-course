@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import Header from "./components/Header";
 import CoreConcept from "./components/CoreConcept";
 import { CORE_CONCEPTS } from "./data.js";
@@ -8,11 +8,18 @@ import { EXAMPLES } from "./data.js";
 function App() {
   const [selectedTopic, setSelectedTopic] = useState();
 
-  const topics = ["components", "jsx", "props", "state"]; // Array of topics
+  const topics = ["components", "jsx", "props", "state"]; 
 
   function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSelectedTopic(topics[0]);
+    }, 3000);
+    
+  }, []);
 
   return (
     <div>
