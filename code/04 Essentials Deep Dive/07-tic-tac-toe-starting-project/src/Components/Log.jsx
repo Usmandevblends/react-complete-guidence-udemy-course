@@ -4,10 +4,10 @@ function Log() {
   return (
     <>
         <ol id='log'>
-            
+
         </ol>
     </>
   )
 }
 
-export default Logx
+export default Log
