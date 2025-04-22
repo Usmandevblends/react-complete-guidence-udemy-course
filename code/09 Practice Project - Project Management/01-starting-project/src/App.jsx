@@ -1,7 +1,7 @@
 import NewProject from "./components/NewProject";
 import NoProjectSelected from "./components/NoProjectSelected";
 import ProjectSidebar from "./components/ProjectSidebar";
-import { useEffect, useState } from 'react';
+import { useState } from "react";
 import React from "react";
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
 
   function handleStartAddProject() {
     setProjectState((prevState) => {
+      const projectId = Math.random();
       return {
         ...prevState,
         selectedProjectId: null,
@@ -20,18 +21,18 @@ function App() {
   }
 
   function handleAddProject(projectData) {
-    setProjectState(prevState => {
+    setProjectState((prevState) => {
       const newProject = {
-        ...projectData, 
-        id: Math.random()
-      }
+        ...projectData,
+        id: Math.random(),
+      };
       return {
         ...prevState,
-        projects:[...prevState.projects, newProject],
-      }
-    })
+        selectedProjectId: undefined,
+        projects: [...prevState.projects, newProject],
+      };
+    });
   }
-  
 
   let content;
   if (projectState.selectedProjectId === null) {
@@ -42,7 +43,10 @@ function App() {
   return (
     <>
       <main className="h-screen  flex gap-8">
-        <ProjectSidebar onStartAddProject={handleStartAddProject} />
+        <ProjectSidebar
+          onStartAddProject={handleStartAddProject}
+          kprojects={projectState.projects}
+        />
         {content}
       </main>
     </>
